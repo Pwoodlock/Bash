@@ -114,7 +114,6 @@ check_root
 current_user=$(detect_user)
 arch=$(detect_arch)
 distro=$(detect_distro)
-
 echo "Detected architecture: $arch"
 echo "Detected distribution: $distro"
 echo "Current user: $current_user"
@@ -122,10 +121,7 @@ echo "Current user: $current_user"
 install_docker $distro $arch
 systemctl daemon-reload
 systemctl enable --now docker
-
 docker version
-
 add_user_to_docker_group "$current_user"
-
 echo "Docker has been installed and configured."
 echo "Please log out and log back in for the group changes to take effect."
